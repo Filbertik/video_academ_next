@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --primary-background: #a75df3;
+    --primary-foreground: #ffffff;
+    --primary-dark: #0c0117;
+    --primary-light: #0b0117;
+
+    /* Secondary Colors */
+    --secondary-background: #ffffff;
+    --secondary-foreground: #000000;
+    --secondary-accent: #ff4a76;
+    --secondary-muted: #c5c5c5;
+
+    /* Border Colors */
+    --border-primary: #0c0117;
+    --border-accent: #5adafc;
+
+    /* Text Colors */
+    --text-primary: #000000;
+    --text-secondary: #0c0117;
+    --text-muted: #c5c5c5;
+    --text-accent: #ff4a76;
+    --text-white: #ffffff;
+
+    /* Background Colors */
+    --bg-main: #0b0117;
+    --bg-card: #ffffff;
+    --bg-accent: #a75df3;
+    --bg-dark: #0c0117;
+
+    /* Typography Variables */
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-base: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    --font-size-2xl: 22px;
+    --font-size-3xl: 24px;
+    --font-size-4xl: 32px;
+    --font-size-5xl: 36px;
+    --font-size-6xl: 48px;
+    --font-size-7xl: 74px;
+    --font-size-8xl: 96px;
+
+    /* Font Weight Variables */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+
+    /* Line Height Variables */
+    --line-height-xs: 15px;
+    --line-height-sm: 17px;
+    --line-height-base: 19px;
+    --line-height-lg: 21px;
+    --line-height-xl: 22px;
+    --line-height-2xl: 26px;
+    --line-height-3xl: 28px;
+    --line-height-4xl: 38px;
+    --line-height-5xl: 42px;
+    --line-height-6xl: 57px;
+    --line-height-7xl: 102px;
+    --line-height-8xl: 112px;
+
+    /* Spacing Variables */
+    --spacing-xs: 4px;
+    --spacing-sm: 6px;
+    --spacing-md: 8px;
+    --spacing-lg: 10px;
+    --spacing-xl: 12px;
+    --spacing-2xl: 14px;
+    --spacing-3xl: 16px;
+    --spacing-4xl: 18px;
+    --spacing-5xl: 20px;
+    --spacing-6xl: 22px;
+    --spacing-7xl: 26px;
+    --spacing-8xl: 28px;
+    --spacing-9xl: 30px;
+    --spacing-10xl: 32px;
+    --spacing-11xl: 34px;
+    --spacing-12xl: 40px;
+    --spacing-13xl: 42px;
+    --spacing-14xl: 44px;
+    --spacing-15xl: 56px;
+    --spacing-16xl: 60px;
+    --spacing-17xl: 90px;
+
+    /* Border Radius Variables */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 14px;
+    --radius-xl: 18px;
+    --radius-2xl: 20px;
+    --radius-3xl: 28px;
+    --radius-4xl: 36px;
+    --radius-full: 184px;
+
+    /* Component-specific Colors */
+    --header-text: #ffffff;
+    --header-bg: transparent;
+    
+    --button-primary-bg: #a75df3;
+    --button-primary-text: #ffffff;
+    --button-secondary-bg: #ffffff;
+    --button-secondary-text: #0c0117;
+    --button-border: #5adafc;
+    
+    --input-bg: #ffffff;
+    --input-text: #0c0117;
+    --input-border: #0c0117;
+    
+    --modal-bg: #ffffff;
+    --modal-overlay: rgba(11, 1, 23, 0.8);
+  }
+}

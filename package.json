@@ -1,4 +1,5 @@
-  {"name": "Viral Video Academy",
+{
+  "name": "viral-video-academy",
   "version": "0.1.0",
   "private": true,
   "rocketCritical": {

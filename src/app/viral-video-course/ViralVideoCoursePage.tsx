@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
- import Header from'@/components/common/Header';
- import Button from'@/components/ui/Button';
+import Header from '@/components/common/Header';
+import Button from '@/components/ui/Button';
 
 interface PricingTier {
   id: string;
@@ -16,70 +16,62 @@ interface PricingTier {
 }
 
 export default function ViralVideoCoursePage() {
-  const [discountPercentage, setDiscountPercentage] = useState<string>('')
+  const [discountPercentage, setDiscountPercentage] = useState<string>('');
 
   useEffect(() => {
-    setDiscountPercentage('-50%')
-  }, [])
+    setDiscountPercentage('-50%');
+  }, []);
 
   const pricingTiers: PricingTier[] = [
     {
       id: 'basic',
       name: 'Базовий',
       price: '99 $',
-      originalPrice: '139$',
-      features: [
-        'Базовий курс',
-        '38 уроків'
-      ],
+      originalPrice: '139 $',
+      features: ['Базовий курс', '38 уроків'],
       buttonText: 'Купити',
-      buttonStyle: 'white'
+      buttonStyle: 'white',
     },
     {
       id: 'advanced',
       name: 'Продвинутий',
       price: '149 $',
       originalPrice: '199$',
-      features: [
-        'База',
-        'Додаткові уроки',
-        '48 уроків',
-        'Чат-комюніті для творців контента'
-      ],
+      features: ['База', 'Додаткові уроки', '48 уроків', 'Чат-комюніті для творців контента'],
       isPopular: true,
       buttonText: 'Купити',
-      buttonStyle: 'dark'
+      buttonStyle: 'dark',
     },
     {
       id: 'expert',
       name: 'Експерт',
       price: '299 $',
-      originalPrice: '500$',
+      originalPrice: '500 $',
       features: [
         'Додаткові уроки',
         '48 уроків',
         'Чат-комюніті для творців контента',
-        'Розбір вашої сторінки в форматі відеозвінка'
+        'Розбір вашої сторінки в форматі відеозвінка',
       ],
       isExpert: true,
       buttonText: 'Купити',
-      buttonStyle: 'white'
-    }
-  ]
+      buttonStyle: 'white',
+    },
+  ];
 
   const handlePurchaseClick = (tierId: string) => {
     // Handle purchase logic here
-  }
+  };
 
   const handleDiscountPurchase = () => {
     // Handle discount purchase logic
-  }
+  };
 
   return (
     <div className="min-h-screen bg-[#0b0117] relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0">
-        <div 
+        <div
           className="absolute top-[147px] left-[56px] w-[54%] h-[466px] rounded-[18px] bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: 'url(/images/img_image_2.png)' }}
         />
@@ -98,21 +90,22 @@ export default function ViralVideoCoursePage() {
               {/* Left Content */}
               <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
                 <div className="flex flex-col items-end text-right">
-                  <p 
+                  <p
                     className="text-[14px] sm:text-[16px] md:text-[18px] font-normal leading-[18px] sm:leading-[19px] md:leading-[21px] text-white mb-6 sm:mb-8 md:mb-10 w-full max-w-[300px] sm:max-w-[400px] md:max-w-[460px]"
                     style={{ fontFamily: 'Raleway' }}
                   >
-                    Стати відомим лише за 3 місяці без витрат на рекламу! Дізнайтеся ключ до створення вірусного контенту та перетворите свої ідеї на мільйонні перегляди.
+                    Стати відомим лише за 3 місяці без витрат на рекламу! Дізнайтеся ключ до
+                    створення вірусного контенту та перетворите свої ідеї на мільйонні перегляди.
                   </p>
-                  
-                  <h2 
+
+                  <h2
                     className="text-[24px] sm:text-[28px] md:text-[32px] font-bold leading-[28px] sm:leading-[32px] md:leading-[38px] text-white mb-3 sm:mb-4"
-                    style={{ 
+                    style={{
                       fontFamily: 'Raleway',
                       background: 'linear-gradient(150deg, #8fe7ff 0%, #e3a0ff 50%, #e56f8c 100%)',
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text'
+                      backgroundClip: 'text',
                     }}
                   >
                     Від 0 до 100,000 за 90 днів
@@ -122,7 +115,7 @@ export default function ViralVideoCoursePage() {
 
               {/* Right Content */}
               <div className="w-full lg:w-1/2 flex flex-col items-start">
-                <h1 
+                <h1
                   className="text-[48px] sm:text-[64px] md:text-[80px] lg:text-[96px] font-extrabold leading-[56px] sm:leading-[72px] md:leading-[96px] lg:leading-[112px] text-white uppercase mb-4 sm:mb-6 md:mb-10"
                   style={{ fontFamily: 'Raleway' }}
                 >
@@ -147,13 +140,13 @@ export default function ViralVideoCoursePage() {
                   />
 
                   <div className="flex items-end gap-4 sm:gap-5">
-                    <span 
+                    <span
                       className="text-[20px] sm:text-[22px] md:text-[24px] font-semibold leading-[24px] sm:leading-[26px] md:leading-[29px] text-[#ff4a76]"
                       style={{ fontFamily: 'Raleway' }}
                     >
                       1000 грн
                     </span>
-                    <span 
+                    <span
                       className="text-[12px] sm:text-[13px] md:text-[14px] font-semibold leading-[15px] sm:leading-[16px] md:leading-[17px] text-[#c5c5c5] line-through"
                       style={{ fontFamily: 'Raleway' }}
                     >
@@ -169,7 +162,7 @@ export default function ViralVideoCoursePage() {
         {/* Pricing Section */}
         <section className="w-full px-4 sm:px-6 lg:px-8 mt-[120px] md:mt-[160px] lg:mt-[194px]">
           <div className="w-full max-w-[1120px] mx-auto">
-            <h2 
+            <h2
               className="text-[32px] sm:text-[40px] md:text-[48px] font-bold leading-[38px] sm:leading-[48px] md:leading-[57px] text-center text-white uppercase mb-8 sm:mb-10 md:mb-[44px]"
               style={{ fontFamily: 'Raleway' }}
             >
@@ -181,9 +174,9 @@ export default function ViralVideoCoursePage() {
                 <div
                   key={tier.id}
                   className={`relative rounded-[28px] shadow-[4px_6px_10px_#a75df333] ${
-                    tier.isPopular 
-                      ? 'bg-white' 
-                      : tier.isExpert 
+                    tier.isPopular
+                      ? 'bg-white'
+                      : tier.isExpert
                         ? 'bg-gradient-to-r from-[#5adafc] via-[#df93ff] to-[#e56f8c]'
                         : 'bg-[#0c0117]'
                   } ${index === 0 ? 'mt-[30px]' : index === 2 ? 'mt-[30px]' : 'mt-[-12px]'}`}
@@ -210,7 +203,7 @@ export default function ViralVideoCoursePage() {
                     {/* Tier Header */}
                     <div className="flex flex-col gap-3 sm:gap-4 mb-6 sm:mb-8">
                       <div className="flex items-center justify-between">
-                        <h3 
+                        <h3
                           className={`text-[18px] sm:text-[20px] font-semibold leading-[22px] sm:leading-[24px] uppercase ${
                             tier.isPopular ? 'text-[#0c0117]' : 'text-white'
                           }`}
@@ -220,25 +213,26 @@ export default function ViralVideoCoursePage() {
                         </h3>
                         {(tier.isPopular || tier.isExpert) && (
                           <Button
-                            text={tier.isPopular ? "Pro" : "Expert"}
+                            text={tier.isPopular ? 'Pro' : 'Expert'}
                             text_font_size="text-base"
                             text_font_family="Raleway"
                             text_font_weight="font-bold"
-                            text_color={tier.isPopular ? "text-white" : "text-white"}
-                            fill_background={tier.isPopular ? "#0c0117" : "#ffffff"}
+                            text_color={tier.isPopular ? 'text-white' : 'text-white'}
+                            fill_background={tier.isPopular ? '#0c0117' : '#ffffff'}
                             border_border_radius="rounded-[20px]"
                             padding="t=10px,r=28px,b=10px,l=28px"
                             className="uppercase text-sm"
                             style={{
-                              background: tier.isPopular 
-                                ? '#0c0117' :'linear-gradient(120deg, #5adafc 0%, #df93ff 50%, #e56f8c 100%)'
+                              background: tier.isPopular
+                                ? '#0c0117'
+                                : 'linear-gradient(120deg, #5adafc 0%, #df93ff 50%, #e56f8c 100%)',
                             }}
                           />
                         )}
                       </div>
 
                       <div className="flex items-center gap-4 sm:gap-6">
-                        <span 
+                        <span
                           className={`text-[56px] sm:text-[64px] md:text-[74px] font-bold leading-[76px] sm:leading-[88px] md:leading-[102px] uppercase ${
                             tier.isPopular ? 'text-[#0c0117]' : 'text-white'
                           }`}
@@ -246,7 +240,7 @@ export default function ViralVideoCoursePage() {
                         >
                           {tier.price}
                         </span>
-                        <span 
+                        <span
                           className={`text-[18px] sm:text-[20px] font-bold leading-[24px] sm:leading-[28px] uppercase line-through ${
                             tier.isPopular ? 'text-[#0c0117]' : 'text-white'
                           }`}
@@ -266,14 +260,18 @@ export default function ViralVideoCoursePage() {
                               <div className="w-[14px] h-[14px] bg-[#0c0117] border border-[#0c0117] rounded-[6px]" />
                             ) : (
                               <img
-                                src={tier.isPopular ? "/images/img_record_black_900_01.svg" : "/images/img_record.svg"}
+                                src={
+                                  tier.isPopular
+                                    ? '/images/img_record_black_900_01.svg'
+                                    : '/images/img_record.svg'
+                                }
                                 alt="feature"
                                 width={20}
                                 height={20}
                                 className="flex-shrink-0"
                               />
                             )}
-                            <span 
+                            <span
                               className={`text-[14px] sm:text-[16px] font-semibold leading-[17px] sm:leading-[19px] uppercase ${
                                 tier.isPopular ? 'text-[#0c0117]' : 'text-white'
                               }`}
@@ -293,8 +291,8 @@ export default function ViralVideoCoursePage() {
                       text_font_family="Manrope"
                       text_font_weight="font-semibold"
                       text_line_height="leading-xl"
-                      text_color={tier.buttonStyle === 'white' ? "text-[#0c0117]" : "text-white"}
-                      fill_background_color={tier.buttonStyle === 'white' ? "#ffffff" : "#0c0117"}
+                      text_color={tier.buttonStyle === 'white' ? 'text-[#0c0117]' : 'text-white'}
+                      fill_background_color={tier.buttonStyle === 'white' ? '#ffffff' : '#0c0117'}
                       border_border_radius="rounded-[28px]"
                       padding="t=16px,r=34px,b=16px,l=34px"
                       layout_width="w-full"
@@ -324,40 +322,40 @@ export default function ViralVideoCoursePage() {
           </div>
 
           {/* Border gradients */}
-          <div 
+          <div
             className="absolute top-0 left-0 right-0 h-[1px]"
-            style={{ 
-              background: 'linear-gradient(84deg, #5adafc 0%, #df93ff 50%, #e56f8c 100%)'
+            style={{
+              background: 'linear-gradient(84deg, #5adafc 0%, #df93ff 50%, #e56f8c 100%)',
             }}
           />
-          <div 
+          <div
             className="absolute bottom-0 left-0 right-0 h-[1px]"
-            style={{ 
-              background: 'linear-gradient(84deg, #5adafc 0%, #df93ff 50%, #e56f8c 100%)'
+            style={{
+              background: 'linear-gradient(84deg, #5adafc 0%, #df93ff 50%, #e56f8c 100%)',
             }}
           />
 
           <div className="relative z-10 flex items-center justify-center min-h-[488px] px-4 sm:px-6 lg:px-8">
             <div className="w-full max-w-[600px] text-center py-12 sm:py-16 lg:py-20">
               <div className="mb-8 sm:mb-10 lg:mb-[42px]">
-                <h2 
+                <h2
                   className="text-[24px] sm:text-[30px] md:text-[36px] font-bold leading-[28px] sm:leading-[36px] md:leading-[42px] text-center text-white uppercase mb-4 sm:mb-5 lg:mb-[18px]"
                   style={{ fontFamily: 'Raleway' }}
                 >
                   <span>Дізнайся як створити контент, який </span>
-                  <span 
-                    style={{ 
+                  <span
+                    style={{
                       background: 'linear-gradient(84deg, #5adafc 0%, #df93ff 50%, #e56f8c 100%)',
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text'
+                      backgroundClip: 'text',
                     }}
                   >
                     підкорює аудиторію
                   </span>
                 </h2>
-                
-                <p 
+
+                <p
                   className="text-[18px] sm:text-[20px] md:text-[24px] font-medium leading-[22px] sm:leading-[24px] md:leading-[28px] text-center text-white"
                   style={{ fontFamily: 'Raleway' }}
                 >
@@ -381,7 +379,7 @@ export default function ViralVideoCoursePage() {
                   onClick={handleDiscountPurchase}
                   className="shadow-[7px_11px_18px_#a75df333]"
                 />
-                
+
                 {discountPercentage && (
                   <div className="absolute -top-2 -right-2 bg-[#ff4a76] text-white text-sm font-bold px-3 py-1 rounded-full">
                     {discountPercentage}
@@ -393,24 +391,24 @@ export default function ViralVideoCoursePage() {
 
           {/* Scrolling text background */}
           <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
-            <div 
+            <div
               className="flex items-center py-4 px-2 bg-gradient-to-r from-[#5adafc] via-[#df93ff] to-[#e56f8c] animate-pulse"
               style={{ transform: 'rotate(-15deg)', transformOrigin: 'center' }}
             >
               <div className="flex items-center gap-8 whitespace-nowrap">
-                <span 
+                <span
                   className="text-[28px] sm:text-[32px] md:text-[34px] font-bold leading-[32px] sm:leading-[36px] md:leading-[38px] text-white uppercase"
                   style={{ fontFamily: 'Sansation' }}
                 >
                   Секреты вирусных видео
                 </span>
-                <span 
+                <span
                   className="text-[28px] sm:text-[32px] md:text-[34px] font-bold leading-[32px] sm:leading-[36px] md:leading-[39px] text-white uppercase"
                   style={{ fontFamily: 'Sansation' }}
                 >
                   Секрети вірсних відео
                 </span>
-                <span 
+                <span
                   className="text-[28px] sm:text-[32px] md:text-[34px] font-bold leading-[32px] sm:leading-[36px] md:leading-[38px] text-white uppercase"
                   style={{ fontFamily: 'Sansation' }}
                 >
@@ -422,5 +420,5 @@ export default function ViralVideoCoursePage() {
         </section>
       </main>
     </div>
-  )
+  );
 }

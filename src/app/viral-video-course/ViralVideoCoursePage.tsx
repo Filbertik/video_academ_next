@@ -92,7 +92,19 @@ export default function ViralVideoCoursePage() {
                 className="rounded-[18px] object-cover"
               />
 
-              <div className="relative flex items-center">
+              <div className="relative flex items-center justify-center">
+                <button
+                  onClick={handleDiscountPurchase}
+                  className="w-[534px] h-[74px] rounded-[18419px] bg-white shadow-[inset_7px_11px_18px_rgba(167,93,243,0.2)] flex items-center justify-center text-black font-semibold text-[18px]"
+                >
+                  Придбати зі знижкою
+                </button>
+
+                <div className="absolute top-1/2 -translate-y-1/2 -right-2 w-[74px] h-[74px] bg-[#ff4a77] rounded-[37px] flex items-center justify-center text-white font-bold text-[18px]">
+                  -50%
+                </div>
+              </div>
+              {/* <div className="relative flex items-center">
                 <button
                   onClick={handleDiscountPurchase}
                   className="w-[534px] h-[74px] rounded-[18419px] bg-white shadow-[inset_7px_11px_18px_rgba(167,93,243,0.2)] flex items-center justify-center text-black font-semibold text-[18px]"
@@ -103,7 +115,7 @@ export default function ViralVideoCoursePage() {
                 <div className="absolute -top-2 -right-2 w-[74px] h-[74px] bg-[#ff4a77] rounded-[37px] flex items-center justify-center text-white font-bold text-[18px]">
                   -50%
                 </div>
-              </div>
+              </div> */}
 
               <div className="flex items-end gap-4">
                 <span className="text-[18px] font-semibold text-white">1000 грн</span>

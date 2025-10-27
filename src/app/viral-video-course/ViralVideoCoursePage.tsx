@@ -92,7 +92,7 @@ export default function ViralVideoCoursePage() {
                 className="rounded-[18px] object-cover"
               />
 
-              <div className="w-[534px] flex flex-col items-center gap-2">
+              <div className="w-[534px] flex flex-col items-center gap-3">
                 <div className="relative flex items-center justify-center w-full">
                   <button
                     onClick={handleDiscountPurchase}
@@ -106,9 +106,21 @@ export default function ViralVideoCoursePage() {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-center gap-4">
-                  <span className="text-[18px] font-semibold text-white">1000 грн</span>
-                  <span className="text-[18px] font-semibold text-white line-through">
+                <div className="flex items-center justify-center gap-3">
+                  <span
+                    className="font-semibold text-[24px] leading-[154%]"
+                    style={{
+                      color: '#ff4a77',
+                    }}
+                  >
+                    1000 грн
+                  </span>
+                  <span
+                    className="font-semibold text-[14px] leading-[263%] line-through"
+                    style={{
+                      color: '#c5c5c5',
+                    }}
+                  >
                     1200 грн
                   </span>
                 </div>

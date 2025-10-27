@@ -80,7 +80,11 @@ export default function ViralVideoCoursePage() {
       {/* Основний контент */}
       <main className="relative z-10">
         {/* Hero Section */}
-        <section className="w-full px-4 sm:px-6 lg:px-8 mt-[100px] md:mt-[120px] lg:mt-[150px]">
+        {/* <section className="w-full px-4 sm:px-6 lg:px-8 mt-[100px] md:mt-[120px] lg:mt-[150px]"> */}
+        <section
+          className="w-full px-4 sm:px-6 lg:px-8 
+             mt-[24px] lg:mt-[67px]" // мобілка 24px, десктоп 67px
+        >
           {/* <div className="flex flex-col lg:flex-row items-start justify-between max-w-[1440px] mx-auto gap-8"> */}
           <div className="relative flex flex-col lg:flex-row items-start justify-between max-w-[1120px] mx-auto gap-8 lg:gap-[60px]">
             {/* Ліва колонка */}

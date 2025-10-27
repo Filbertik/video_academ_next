@@ -70,9 +70,9 @@ export default function ViralVideoCoursePage() {
   return (
     <div className="min-h-screen bg-[#0b0117] relative overflow-hidden">
       {/* Фонова декоративна пляма */}
-      <div className="absolute inset-0">
+      {/* <div className="absolute inset-0">
         <div className="absolute top-[889px] right-[22px] w-[30%] h-[346px] bg-[#a75df3] rounded-[184px] shadow-[0px_4px_577px_#888888ff]" />
-      </div>
+      </div> */}
 
       {/* Хедер */}
       <Header />
@@ -141,7 +141,7 @@ export default function ViralVideoCoursePage() {
               </p>
 
               <h2
-                className="text-[32px] font-bold w-[570px] relative -left-[80px]"
+                className="text-[32px] font-bold w-[570px] relative -left-[130px]"
                 style={{
                   fontFamily: 'Raleway',
                   background:
@@ -154,7 +154,7 @@ export default function ViralVideoCoursePage() {
               </h2>
 
               <h1
-                className="relative font-extrabold uppercase text-white leading-[1.1] w-[570px] -left-[80px]"
+                className="relative font-extrabold uppercase text-white leading-[1.1] w-[70px] -left-[130px]"
                 style={{
                   fontFamily: 'Raleway',
                   fontWeight: 800,

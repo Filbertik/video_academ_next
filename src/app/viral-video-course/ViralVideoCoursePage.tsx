@@ -81,18 +81,22 @@ export default function ViralVideoCoursePage() {
       <main className="relative z-10">
         {/* Hero Section */}
         <section className="w-full px-4 sm:px-6 lg:px-8 mt-[100px] md:mt-[120px] lg:mt-[150px]">
-          <div className="flex flex-col lg:flex-row items-start justify-between max-w-[1440px] mx-auto gap-8">
+          {/* <div className="flex flex-col lg:flex-row items-start justify-between max-w-[1440px] mx-auto gap-8"> */}
+          <div className="relative flex flex-col lg:flex-row items-start justify-between max-w-[1120px] mx-auto gap-8 lg:gap-[60px]">
             {/* Ліва колонка */}
-            <div className="relative w-full lg:w-1/2 flex flex-col items-start gap-6">
-              <img
-                src="/images/img_image_2.png"
-                alt="Hero image"
-                width={644}
-                height={466}
-                className="rounded-[18px] object-cover"
-              />
+            <div className="relative w-full lg:w-1/2 flex flex-col items-start gap-6 z-10">
+              <div className="relative w-[644px] h-[466px] -mr-[120px] z-10">
+                <img
+                  src="/images/img_image_2.png"
+                  alt="Hero image"
+                  className="absolute top-0 left-0 w-[644px] h-[466px] object-cover rounded-[18px] z-10"
+                  style={{
+                    transform: 'translateX(1px)', // зсув вправо
+                  }}
+                />
+              </div>
 
-              <div className="w-[534px] flex flex-col items-center gap-3">
+              <div className="w-[534px] flex flex-col items-center gap-3 z-20">
                 <div className="relative flex items-center justify-center w-full">
                   <button
                     onClick={handleDiscountPurchase}
@@ -110,6 +114,7 @@ export default function ViralVideoCoursePage() {
                   <span
                     className="font-semibold text-[24px] leading-[154%]"
                     style={{
+                      fontFamily: 'var(--font-family)',
                       color: '#ff4a77',
                     }}
                   >
@@ -118,6 +123,7 @@ export default function ViralVideoCoursePage() {
                   <span
                     className="font-semibold text-[14px] leading-[263%] line-through"
                     style={{
+                      fontFamily: 'var(--font-family)',
                       color: '#c5c5c5',
                     }}
                   >
@@ -128,19 +134,16 @@ export default function ViralVideoCoursePage() {
             </div>
 
             {/* Права колонка */}
-            <div className="w-full lg:w-1/2 flex flex-col gap-4">
-              <p
-                className="text-[18px] font-normal text-white"
-                style={{ fontFamily: 'var(--font-family)' }}
-              >
+            <div className="relative w-[396px] flex flex-col gap-4 z-20  mt-[84px]">
+              <p className="text-[18px] font-normal text-white" style={{ fontFamily: 'Raleway' }}>
                 Стати відомим лише за 3 місяці без витрат на рекламу! Дізнайтеся ключ до створення
                 вірусного контенту та перетворите свої ідеї на мільйонні перегляди.
               </p>
 
               <h2
-                className="text-[32px] font-bold"
+                className="text-[32px] font-bold w-[570px] relative -left-[80px]"
                 style={{
-                  fontFamily: 'var(--font-family)',
+                  fontFamily: 'Raleway',
                   background:
                     'linear-gradient(151deg, #90e8ff 0%, #9c9eff 40.3%, #e3a1ff 79.87%, #e56f8c 100%)',
                   WebkitBackgroundClip: 'text',
@@ -151,8 +154,12 @@ export default function ViralVideoCoursePage() {
               </h2>
 
               <h1
-                className="text-[96px] font-extrabold uppercase text-white leading-[1.1]"
-                style={{ fontFamily: 'var(--font-family)' }}
+                className="relative font-extrabold uppercase text-white leading-[1.1] w-[570px] -left-[80px]"
+                style={{
+                  fontFamily: 'Raleway',
+                  fontWeight: 800,
+                  fontSize: '96px',
+                }}
               >
                 Секрети вірусних
                 <br />

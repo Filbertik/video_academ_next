@@ -187,13 +187,23 @@ export default function ViralVideoCoursePage() {
               {pricingTiers.map((tier, index) => (
                 <div
                   key={tier.id}
-                  className={`relative rounded-[28px] shadow-[4px_6px_10px_#a75df333] ${
-                    tier.isPopular
-                      ? 'bg-white'
-                      : tier.isExpert
-                        ? 'bg-gradient-to-r from-[#5adafc] via-[#df93ff] to-[#e56f8c]'
-                        : 'bg-[#0c0117]'
-                  } ${index === 0 ? 'mt-[30px]' : index === 2 ? 'mt-[30px]' : 'mt-[-12px]'}`}
+                  className={`relative rounded-[28px] shadow-[4px_6px_10px_#a75df333] 
+    ${
+      tier.isPopular
+        ? 'bg-white'
+        : tier.isExpert
+          ? 'bg-gradient-to-r from-[#5adafc] via-[#df93ff] to-[#e56f8c]'
+          : 'bg-[#0c0117]'
+    }`}
+                  style={{ width: '360px', height: '465px', marginTop: '30px' }}
+                  // key={tier.id}
+                  // className={`relative rounded-[28px] shadow-[4px_6px_10px_#a75df333] ${
+                  //   tier.isPopular
+                  //     ? 'bg-white'
+                  //     : tier.isExpert
+                  //       ? 'bg-gradient-to-r from-[#5adafc] via-[#df93ff] to-[#e56f8c]'
+                  //       : 'bg-[#0c0117]'
+                  // } ${index === 0 ? 'mt-[30px]' : index === 2 ? 'mt-[30px]' : 'mt-[-12px]'}`}
                 >
                   {tier.isPopular && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">

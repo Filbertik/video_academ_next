@@ -203,11 +203,11 @@ export default function ViralVideoCoursePage() {
                         text_font_family="Raleway"
                         text_font_weight="font-bold"
                         text_color="text-white"
-                        fill_background="linear-gradient(120deg, #5adafc 0%, #df93ff 50%, #e56f8c 100%)"
+                        fill_background="linear-gradient(121deg, #5bdbfd 0%, #7375ff 40.3%, #df93ff 79.87%, #e56f8c 100%)"
                         border_border_radius="rounded-[18px]"
                         padding="t=10px,r=32px,b=10px,l=32px"
-                        effect_box_shadow="0px 4px 16px #0000003f"
-                        className="uppercase text-sm"
+                        effect_box_shadow="0 4px 16px 1px rgba(0, 0, 0, 0.25)"
+                        className="uppercase text-sm w-[169px] h-[42px]"
                       />
                     </div>
                   )}

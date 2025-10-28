@@ -229,18 +229,36 @@ export default function ViralVideoCoursePage() {
                             text_font_size="text-[16px]"
                             text_font_family="Raleway"
                             text_font_weight="font-bold"
-                            text_color="text-transparent"
+                            text_transform="uppercase"
                             border_border_radius="rounded-[30px]"
                             padding="t=10px,r=34px,b=10px,l=34px"
-                            className="uppercase text-[16px] font-bold w-[119px] h-[42px]"
+                            className="w-[119px] h-[42px]"
                             style={{
-                              background: tier.isPopular ? '#0c0117' : '#fff',
-                              WebkitBackgroundClip: 'text',
-                              WebkitTextFillColor: 'transparent',
+                              background: tier.isPopular ? '#0c0117' : '#ffffff',
+                              color: 'transparent',
                               backgroundImage:
                                 'linear-gradient(121deg, #5bdbfd 0%, #7375ff 40.3%, #df93ff 79.87%, #e56f8c 100%)',
+                              WebkitBackgroundClip: 'text',
+                              WebkitTextFillColor: 'transparent',
                             }}
                           />
+                          // <Button
+                          //   text={tier.isPopular ? 'Pro' : 'Expert'}
+                          //   text_font_size="text-[16px]"
+                          //   text_font_family="Raleway"
+                          //   text_font_weight="font-bold"
+                          //   text_color="text-transparent"
+                          //   border_border_radius="rounded-[30px]"
+                          //   padding="t=10px,r=34px,b=10px,l=34px"
+                          //   className="uppercase text-[16px] font-bold w-[119px] h-[42px]"
+                          //   style={{
+                          //     background: tier.isPopular ? '#0c0117' : '#fff',
+                          //     WebkitBackgroundClip: 'text',
+                          //     WebkitTextFillColor: 'transparent',
+                          //     backgroundImage:
+                          //       'linear-gradient(121deg, #5bdbfd 0%, #7375ff 40.3%, #df93ff 79.87%, #e56f8c 100%)',
+                          //   }}
+                          // />
 
                           // <Button
                           //   text={tier.isPopular ? 'Pro' : 'Expert'}
@@ -307,6 +325,7 @@ export default function ViralVideoCoursePage() {
                         ))}
                       </ul>
                     </div>
+
                     <Button
                       text={tier.buttonText}
                       text_font_size="text-base"
@@ -314,13 +333,31 @@ export default function ViralVideoCoursePage() {
                       text_font_weight="font-semibold"
                       text_line_height="leading-xl"
                       text_color={tier.buttonStyle === 'white' ? 'text-[#0c0117]' : 'text-white'}
-                      fill_background_color={tier.buttonStyle === 'white' ? '#ffffff' : '#0c0117'}
                       border_border_radius="rounded-[52px]"
                       padding="t=16px,r=63px,b=16px,l=63px"
-                      layout_width="w-[287px]"
-                      className="h-[57px]"
+                      className={`w-[287px] h-[57px] ${
+                        tier.buttonStyle === 'white'
+                          ? 'bg-white text-[#0c0117]'
+                          : 'bg-[#0c0117] text-white'
+                      }`}
                       onClick={() => handlePurchaseClick(tier.id)}
                     />
+                    {/* <Button
+                      text={tier.buttonText}
+                      text_font_size="text-base"
+                      text_font_family="Manrope"
+                      text_font_weight="font-semibold"
+                      text_line_height="leading-xl"
+                      text_color={tier.buttonStyle === 'white' ? 'text-[#0c0117]' : 'text-white'}
+                      border_border_radius="rounded-[52px]"
+                      padding="t=16px,r=63px,b=16px,l=63px"
+                      className={`w-[287px] h-[57px] ${
+                        tier.buttonStyle === 'white'
+                          ? 'bg-white text-[#0c0117]'
+                          : 'bg-[#0c0117] text-white'
+                      }`}
+                      onClick={() => handlePurchaseClick(tier.id)}
+                    /> */}
 
                     {/* <Button
                       text={tier.buttonText}

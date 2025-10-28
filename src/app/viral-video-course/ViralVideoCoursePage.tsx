@@ -225,20 +225,30 @@ export default function ViralVideoCoursePage() {
                         </h3>
                         {(tier.isPopular || tier.isExpert) && (
                           <Button
-                            text={tier.isPopular ? 'Pro' : 'Expert'}
-                            text_font_size="text-[16px]"
+                            text="Start Now"
+                            text_font_size="text-lg"
                             text_font_family="Raleway"
                             text_font_weight="font-bold"
-                            text_transform="uppercase"
+                            // text_transform="uppercase" ← видаліть або закоментуйте
                             border_border_radius="rounded-[30px]"
                             padding="t=10px,r=34px,b=10px,l=34px"
-                            // Жорсткий клас — щоб компонент не намагався "додати" градієнт
-                            className={`w-[119px] h-[42px] rounded-[30px] flex items-center justify-center uppercase text-[16px] font-bold ${
-                              tier.isPopular ? 'bg-[#0c0117] text-white' : 'bg-white text-[#0c0117]'
-                            }`}
-                            // Забираємо inline-градієнт зі стилю — усе через класи вище
-                            style={{}}
+                            className="uppercase" // ← можна додати клас замість пропа
                           />
+                          // <Button
+                          //   text={tier.isPopular ? 'Pro' : 'Expert'}
+                          //   text_font_size="text-[16px]"
+                          //   text_font_family="Raleway"
+                          //   text_font_weight="font-bold"
+                          //   text_transform="uppercase"
+                          //   border_border_radius="rounded-[30px]"
+                          //   padding="t=10px,r=34px,b=10px,l=34px"
+                          // Жорсткий клас — щоб компонент не намагався "додати" градієнт
+                          // className={`w-[119px] h-[42px] rounded-[30px] flex items-center justify-center uppercase text-[16px] font-bold ${
+                          //   tier.isPopular ? 'bg-[#0c0117] text-white' : 'bg-white text-[#0c0117]'
+                          // }`}
+                          // Забираємо inline-градієнт зі стилю — усе через класи вище
+                          // style={{}}
+                          // />
                           // <Button
                           //   text={tier.isPopular ? 'Pro' : 'Expert'}
                           //   text_font_size="text-[16px]"

@@ -224,31 +224,31 @@ export default function ViralVideoCoursePage() {
                           {tier.name}
                         </h3>
                         {(tier.isPopular || tier.isExpert) && (
-                          <Button
-                            text="Start Now"
-                            text_font_size="text-lg"
-                            text_font_family="Raleway"
-                            text_font_weight="font-bold"
-                            // text_transform="uppercase" ← видаліть або закоментуйте
-                            border_border_radius="rounded-[30px]"
-                            padding="t=10px,r=34px,b=10px,l=34px"
-                            className="uppercase" // ← можна додати клас замість пропа
-                          />
                           // <Button
-                          //   text={tier.isPopular ? 'Pro' : 'Expert'}
-                          //   text_font_size="text-[16px]"
+                          //   text="Start Now"
+                          //   text_font_size="text-lg"
                           //   text_font_family="Raleway"
                           //   text_font_weight="font-bold"
-                          //   text_transform="uppercase"
+                          //   // text_transform="uppercase" ← видаліть або закоментуйте
                           //   border_border_radius="rounded-[30px]"
                           //   padding="t=10px,r=34px,b=10px,l=34px"
-                          // Жорсткий клас — щоб компонент не намагався "додати" градієнт
-                          // className={`w-[119px] h-[42px] rounded-[30px] flex items-center justify-center uppercase text-[16px] font-bold ${
-                          //   tier.isPopular ? 'bg-[#0c0117] text-white' : 'bg-white text-[#0c0117]'
-                          // }`}
-                          // Забираємо inline-градієнт зі стилю — усе через класи вище
-                          // style={{}}
+                          //   className="uppercase" // ← можна додати клас замість пропа
                           // />
+                          <Button
+                            text={tier.isPopular ? 'Pro' : 'Expert'}
+                            text_font_size="text-[16px]"
+                            text_font_family="Raleway"
+                            text_font_weight="font-bold"
+                            // text_transform="uppercase"
+                            border_border_radius="rounded-[30px]"
+                            padding="t=10px,r=34px,b=10px,l=34px"
+                            // Жорсткий клас — щоб компонент не намагався "додати" градієнт
+                            className={`uppercase  w-[119px] h-[42px] rounded-[30px] flex items-center justify-center uppercase text-[16px] font-bold ${
+                              tier.isPopular ? 'bg-[#0c0117] text-white' : 'bg-white text-[#0c0117]'
+                            }`}
+                            // Забираємо inline-градієнт зі стилю — усе через класи вище
+                            style={{}}
+                          />
                           // <Button
                           //   text={tier.isPopular ? 'Pro' : 'Expert'}
                           //   text_font_size="text-[16px]"
@@ -332,8 +332,26 @@ export default function ViralVideoCoursePage() {
                         ))}
                       </ul>
                     </div>
-
                     <Button
+                      text={tier.buttonText}
+                      text_font_size="text-base"
+                      text_font_family="Manrope"
+                      text_font_weight="font-semibold"
+                      text_line_height="leading-xl"
+                      // НЕ передаємо fill_background / fill_background_color
+                      border_border_radius="rounded-[52px]"
+                      padding="t=16px,r=63px,b=16px,l=63px"
+                      className={`w-[287px] h-[57px] rounded-[52px] font-semibold text-[16px] uppercase flex items-center justify-center
+    ${tier.buttonStyle === 'white' ? '!bg-white !text-[#0c0117]' : '!bg-[#0c0117] !text-white'}`}
+                      style={{
+                        background: tier.buttonStyle === 'white' ? '#ffffff' : '#0c0117',
+                        color: tier.buttonStyle === 'white' ? '#0c0117' : '#ffffff',
+                        backgroundImage: 'none', // знімає градієнт
+                      }}
+                      onClick={() => handlePurchaseClick(tier.id)}
+                    />
+
+                    {/* <Button
                       text={tier.buttonText}
                       text_font_size="text-base"
                       text_font_family="Manrope"
@@ -348,7 +366,7 @@ export default function ViralVideoCoursePage() {
                           : 'bg-[#0c0117] text-white'
                       }`}
                       onClick={() => handlePurchaseClick(tier.id)}
-                    />
+                    /> */}
 
                     {/* <Button
                       text={tier.buttonText}

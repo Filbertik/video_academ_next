@@ -364,9 +364,26 @@ export default function ViralVideoCoursePage() {
             marginRight: 'auto',
           }}
         >
+          {/* <div className="absolute inset-0">
+            <div className="absolute right-0 top-0 w-[48%] h-full bg-gradient-to-r from-[#5adafc] via-[#df93ff] to-[#e56f8c]" /> */}
           <div className="absolute inset-0">
-            <div className="absolute right-0 top-0 w-[48%] h-full bg-gradient-to-r from-[#5adafc] via-[#df93ff] to-[#e56f8c]" />
+            {/* 🔹 ЗМІНА: правий градієнтний фон */}
+            <div
+              className="absolute top-0 right-0"
+              style={{
+                width: '608px', // ширина
+                height: '488px', // висота
+                // background:
+                //   'linear-gradient(124deg, rgba(91,219,253,0.5) 0%, rgba(115,117,255,0.5) 40.3%, rgba(223,147,255,0.5) 79.87%, rgba(229,111,140,0.5) 100%)',
+                // filter: 'blur(20px)',
+                background:
+                  'linear-gradient(124deg, #5bdbfd 0%, #7375ff 40.3%, #df93ff 79.87%, #e56f8c 100%)',
+              }}
+            />
+
             {/* <div className="absolute left-0 top-[117px] w-[32%] h-[488px]">            */}
+
+            {/* Ліве зображення (нижній лівий кут) */}
             <div
               className="absolute left-0 bottom-0"
               // style={{

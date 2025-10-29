@@ -188,14 +188,14 @@ export default function ViralVideoCoursePage() {
                 <div
                   key={tier.id}
                   className={`relative rounded-[28px] shadow-[4px_6px_10px_#a75df333] 
-    ${
-      tier.isPopular
-        ? 'bg-white'
-        : tier.isExpert
-          ? 'bg-gradient-to-r from-[#5adafc] via-[#df93ff] to-[#e56f8c]'
-          : 'bg-[#0c0117]'
-    }`}
-                  style={{ width: '360px', height: '465px', marginTop: '30px' }}
+                    ${
+                      tier.isPopular
+                        ? 'bg-white'
+                        : tier.isExpert
+                          ? 'bg-gradient-to-r from-[#5adafc] via-[#df93ff] to-[#e56f8c]'
+                          : 'bg-[#0c0117]'
+                    }`}
+                  style={{ width: '360px', height: '465px', marginTop: '1px' }}
                   // key={tier.id}
                   // className={`relative rounded-[28px] shadow-[4px_6px_10px_#a75df333] ${
                   //   tier.isPopular

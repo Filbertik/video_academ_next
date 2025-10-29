@@ -363,8 +363,26 @@ export default function ViralVideoCoursePage() {
             marginRight: 'auto',
           }}
         >
+          {/* 🔹 Підложка (реальне розмиття фону) */}
+          {/* <div className="absolute inset-0 flex justify-center items-center z-[1]"> */}
+          <div className="absolute inset-0 flex justify-center items-center z-[1] overflow-hidden">
+            <div
+              className="rounded-full"
+              style={{
+                width: '712px',
+                // width: '488px',
+                height: '488px',
+                // height: '1280px',
+                backgroundColor: 'rgba(12, 1, 23, 0.85)',
+                filter: 'blur(100px)',
+                backdropFilter: 'blur(60px)',
+                WebkitBackdropFilter: 'blur(60px)',
+                borderRadius: '50%',
+              }}
+            />
+          </div>
           {/* 🔹 Підложка (розмита еліптична форма) */}
-          <div className="absolute inset-0 flex justify-center items-center z-0">
+          {/* <div className="absolute inset-0 flex justify-center items-center z-0">
             <svg
               width="1280"
               height="488"
@@ -397,7 +415,7 @@ export default function ViralVideoCoursePage() {
                 </filter>
               </defs>
             </svg>
-          </div>
+          </div> */}
 
           {/* 🔹 Фон правий градієнт */}
           <div className="absolute inset-0">
@@ -492,7 +510,7 @@ export default function ViralVideoCoursePage() {
           </div>
 
           {/* 🔹 Нижня пульсуюча смуга */}
-          <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
+          <div className="absolute bottom-0 left-0 right-100 overflow-hidden">
             <div
               className="flex items-center py-4 px-2 bg-gradient-to-r from-[#5adafc] via-[#df93ff] to-[#e56f8c] animate-pulse"
               style={{ transform: 'rotate(-15deg)', transformOrigin: 'center' }}

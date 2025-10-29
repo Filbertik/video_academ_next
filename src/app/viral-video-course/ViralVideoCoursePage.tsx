@@ -510,7 +510,43 @@ export default function ViralVideoCoursePage() {
           </div>
 
           {/* 🔹 Нижня пульсуюча смуга */}
-          <div className="absolute bottom-0 left-0 right-100 overflow-hidden">
+          <div className="absolute bottom-0 left-0 right-0 overflow-visible z-[5] pointer-events-none">
+            <div
+              className="absolute bg-gradient-to-r from-[#5adafc] via-[#df93ff] to-[#e56f8c] animate-pulse flex items-center justify-center"
+              style={{
+                width: '1547px',
+                height: '97px',
+                filter: 'blur(1.73px)',
+                // transform: 'rotate(136deg)',
+                transform: 'rotate(-36deg)',
+                transformOrigin: 'center',
+                right: '-300px', // відступ праворуч, щоб була у полі зору
+                bottom: '-250px', // підніми/опусти, якщо треба
+              }}
+            >
+              <div className="flex items-center gap-8 whitespace-nowrap px-8">
+                <span
+                  className="text-[28px] sm:text-[32px] md:text-[34px] font-bold leading-[38px] text-white uppercase"
+                  style={{ fontFamily: 'Sansation' }}
+                >
+                  Секреты вирусных видео
+                </span>
+                <span
+                  className="text-[28px] sm:text-[32px] md:text-[34px] font-bold leading-[39px] text-white uppercase"
+                  style={{ fontFamily: 'Sansation' }}
+                >
+                  Секрети вірусних відео
+                </span>
+                <span
+                  className="text-[28px] sm:text-[32px] md:text-[34px] font-bold leading-[38px] text-white uppercase"
+                  style={{ fontFamily: 'Sansation' }}
+                >
+                  Секреты вирусных видео
+                </span>
+              </div>
+            </div>
+          </div>
+          {/* <div className="absolute bottom-0 left-0 right-100 overflow-hidden">
             <div
               className="flex items-center py-4 px-2 bg-gradient-to-r from-[#5adafc] via-[#df93ff] to-[#e56f8c] animate-pulse"
               style={{ transform: 'rotate(-15deg)', transformOrigin: 'center' }}
@@ -536,7 +572,7 @@ export default function ViralVideoCoursePage() {
                 </span>
               </div>
             </div>
-          </div>
+          </div> */}
         </section>
       </main>
     </div>

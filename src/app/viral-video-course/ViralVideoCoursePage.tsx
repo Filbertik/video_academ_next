@@ -355,42 +355,63 @@ export default function ViralVideoCoursePage() {
         {/* Нижній CTA блок */}
         {/* <section className="w-full mt-[120px] md:mt-[160px] lg:mt-[200px] relative"> */}
         <section
-          // 🔹 ЗМІНА: стилі правильно через React.CSSProperties
-          className="w-full relative mt-[120px] md:mt-[160px] lg:mt-[200px] mb-[59px]" // нижній відступ
+          className="w-full relative mt-[120px] md:mt-[160px] lg:mt-[200px] mb-[59px]"
           style={{
-            maxWidth: '1280px', // 🔹 camelCase + рядок із px
-            height: '488px', // 🔹 camelCase + рядок із px
+            maxWidth: '1280px',
+            height: '488px',
             marginLeft: 'auto',
             marginRight: 'auto',
           }}
         >
-          {/* <div className="absolute inset-0">
-            <div className="absolute right-0 top-0 w-[48%] h-full bg-gradient-to-r from-[#5adafc] via-[#df93ff] to-[#e56f8c]" /> */}
+          {/* 🔹 Підложка (розмита еліптична форма) */}
+          <div className="absolute inset-0 flex justify-center items-center z-0">
+            <svg
+              width="1280"
+              height="488"
+              viewBox="0 0 1280 488"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-full h-full"
+            >
+              <g filter="url(#filter0_f)">
+                <ellipse cx="640" cy="244" rx="356" ry="743" fill="#0C0117" />
+              </g>
+              <defs>
+                <filter
+                  id="filter0_f"
+                  x="-51.2"
+                  y="-834.2"
+                  width="1382.4"
+                  height="2156.4"
+                  filterUnits="userSpaceOnUse"
+                  colorInterpolationFilters="sRGB"
+                >
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                  <feBlend
+                    mode="normal"
+                    in="SourceGraphic"
+                    in2="BackgroundImageFix"
+                    result="shape"
+                  />
+                  <feGaussianBlur stdDeviation="167.6" result="effect1_foregroundBlur" />
+                </filter>
+              </defs>
+            </svg>
+          </div>
+
+          {/* 🔹 Фон правий градієнт */}
           <div className="absolute inset-0">
-            {/* 🔹 ЗМІНА: правий градієнтний фон */}
             <div
               className="absolute top-0 right-0"
               style={{
-                width: '608px', // ширина
-                height: '488px', // висота
-                // background:
-                //   'linear-gradient(124deg, rgba(91,219,253,0.5) 0%, rgba(115,117,255,0.5) 40.3%, rgba(223,147,255,0.5) 79.87%, rgba(229,111,140,0.5) 100%)',
-                // filter: 'blur(20px)',
+                width: '608px',
+                height: '488px',
                 background:
                   'linear-gradient(124deg, #5bdbfd 0%, #7375ff 40.3%, #df93ff 79.87%, #e56f8c 100%)',
               }}
             />
-
-            {/* <div className="absolute left-0 top-[117px] w-[32%] h-[488px]">            */}
-
-            {/* Ліве зображення (нижній лівий кут) */}
-            <div
-              className="absolute left-0 bottom-0"
-              // style={{
-              //   width: '513px',
-              //   height: '799px',
-              // }}
-            >
+            {/* Ліве зображення */}
+            <div className="absolute left-0 bottom-0">
               <img
                 src="/images/img_unsplash_a64viljbv9q.png"
                 alt="Content creator"
@@ -401,6 +422,7 @@ export default function ViralVideoCoursePage() {
             </div>
           </div>
 
+          {/* 🔹 Горизонтальні градієнтні лінії */}
           <div
             className="absolute top-0 left-0 right-0 h-[1px]"
             style={{
@@ -414,6 +436,7 @@ export default function ViralVideoCoursePage() {
             }}
           />
 
+          {/* 🔹 Контент поверх підложки */}
           <div className="relative z-10 flex items-center justify-center min-h-[488px] px-4 sm:px-6 lg:px-8">
             <div className="w-full max-w-[600px] text-center py-12 sm:py-16 lg:py-20">
               <div className="mb-8 sm:mb-10 lg:mb-[42px]">
@@ -468,6 +491,7 @@ export default function ViralVideoCoursePage() {
             </div>
           </div>
 
+          {/* 🔹 Нижня пульсуюча смуга */}
           <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
             <div
               className="flex items-center py-4 px-2 bg-gradient-to-r from-[#5adafc] via-[#df93ff] to-[#e56f8c] animate-pulse"

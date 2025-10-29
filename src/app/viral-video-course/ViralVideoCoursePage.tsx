@@ -183,11 +183,13 @@ export default function ViralVideoCoursePage() {
               Тарифи
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-[20px]">
+            {/* 🔹 ЗМІНИ: додано items-stretch щоб колонки мали однакову висоту */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-[20px] items-stretch">
               {pricingTiers.map((tier, index) => (
+                // 🔹 ЗМІНИ: використано flex layout із minHeight, щоб уникнути "вилазіння" кнопки
                 <div
                   key={tier.id}
-                  className={`relative rounded-[28px] shadow-[4px_6px_10px_#a75df333] 
+                  className={`relative flex flex-col justify-between rounded-[28px] shadow-[4px_6px_10px_#a75df333] 
                     ${
                       tier.isPopular
                         ? 'bg-white'
@@ -195,15 +197,7 @@ export default function ViralVideoCoursePage() {
                           ? 'bg-gradient-to-r from-[#5adafc] via-[#df93ff] to-[#e56f8c]'
                           : 'bg-[#0c0117]'
                     }`}
-                  style={{ width: '360px', height: '465px', marginTop: '1px' }}
-                  // key={tier.id}
-                  // className={`relative rounded-[28px] shadow-[4px_6px_10px_#a75df333] ${
-                  //   tier.isPopular
-                  //     ? 'bg-white'
-                  //     : tier.isExpert
-                  //       ? 'bg-gradient-to-r from-[#5adafc] via-[#df93ff] to-[#e56f8c]'
-                  //       : 'bg-[#0c0117]'
-                  // } ${index === 0 ? 'mt-[30px]' : index === 2 ? 'mt-[30px]' : 'mt-[-12px]'}`}
+                  style={{ minHeight: '465px' }}
                 >
                   {tier.isPopular && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
@@ -222,9 +216,10 @@ export default function ViralVideoCoursePage() {
                     </div>
                   )}
 
-                  <div className="p-6 sm:p-7 lg:p-8">
-                    <div className="flex flex-col gap-3 sm:gap-4 mb-6 sm:mb-8">
-                      <div className="flex items-center justify-between">
+                  {/* 🔹 ЗМІНИ: вирівнювання контенту всередині картки */}
+                  <div className="p-6 sm:p-7 lg:p-8 flex flex-col flex-1 justify-between">
+                    <div>
+                      <div className="flex items-center justify-between mb-[18px]">
                         <h3
                           className={`text-[18px] sm:text-[20px] font-semibold leading-[22px] sm:leading-[24px] uppercase ${
                             tier.isPopular ? 'text-[#0c0117]' : 'text-white'
@@ -234,68 +229,21 @@ export default function ViralVideoCoursePage() {
                           {tier.name}
                         </h3>
                         {(tier.isPopular || tier.isExpert) && (
-                          // <Button
-                          //   text="Start Now"
-                          //   text_font_size="text-lg"
-                          //   text_font_family="Raleway"
-                          //   text_font_weight="font-bold"
-                          //   // text_transform="uppercase" ← видаліть або закоментуйте
-                          //   border_border_radius="rounded-[30px]"
-                          //   padding="t=10px,r=34px,b=10px,l=34px"
-                          //   className="uppercase" // ← можна додати клас замість пропа
-                          // />
                           <Button
                             text={tier.isPopular ? 'Pro' : 'Expert'}
                             text_font_size="text-[16px]"
                             text_font_family="Raleway"
                             text_font_weight="font-bold"
-                            // text_transform="uppercase"
                             border_border_radius="rounded-[30px]"
                             padding="t=10px,r=34px,b=10px,l=34px"
-                            // Жорсткий клас — щоб компонент не намагався "додати" градієнт
-                            className={`uppercase  w-[119px] h-[42px] rounded-[30px] flex items-center justify-center uppercase text-[16px] font-bold ${
+                            className={`uppercase w-[119px] h-[42px] rounded-[30px] flex items-center justify-center ${
                               tier.isPopular ? 'bg-[#0c0117] text-white' : 'bg-white text-[#0c0117]'
                             }`}
-                            // Забираємо inline-градієнт зі стилю — усе через класи вище
-                            style={{}}
                           />
-                          // <Button
-                          //   text={tier.isPopular ? 'Pro' : 'Expert'}
-                          //   text_font_size="text-[16px]"
-                          //   text_font_family="Raleway"
-                          //   text_font_weight="font-bold"
-                          //   text_color="text-transparent"
-                          //   border_border_radius="rounded-[30px]"
-                          //   padding="t=10px,r=34px,b=10px,l=34px"
-                          //   className="uppercase text-[16px] font-bold w-[119px] h-[42px]"
-                          //   style={{
-                          //     background: tier.isPopular ? '#0c0117' : '#fff',
-                          //     WebkitBackgroundClip: 'text',
-                          //     WebkitTextFillColor: 'transparent',
-                          //     backgroundImage:
-                          //       'linear-gradient(121deg, #5bdbfd 0%, #7375ff 40.3%, #df93ff 79.87%, #e56f8c 100%)',
-                          //   }}
-                          // />
-
-                          // <Button
-                          //   text={tier.isPopular ? 'Pro' : 'Expert'}
-                          //   text_font_size="text-base"
-                          //   text_font_family="Raleway"
-                          //   text_font_weight="font-bold"
-                          //   text_color="text-white"
-                          //   border_border_radius="rounded-[20px]"
-                          //   padding="t=10px,r=28px,b=10px,l=28px"
-                          //   className="uppercase text-sm"
-                          //   style={{
-                          //     background: tier.isPopular
-                          //       ? '#0c0117'
-                          //       : 'linear-gradient(120deg, #5adafc 0%, #df93ff 50%, #e56f8c 100%)',
-                          //   }}
-                          // />
                         )}
                       </div>
 
-                      <div className="flex items-center gap-4 sm:gap-6">
+                      <div className="flex items-center gap-4 mb-[29px]">
                         <span
                           className={`text-[56px] sm:text-[64px] md:text-[74px] font-bold leading-[76px] sm:leading-[88px] md:leading-[102px] uppercase ${
                             tier.isPopular ? 'text-[#0c0117]' : 'text-white'
@@ -313,117 +261,56 @@ export default function ViralVideoCoursePage() {
                           {tier.originalPrice}
                         </span>
                       </div>
+
+                      <div className="mb-6 sm:mb-8">
+                        <ul className="space-y-2 sm:space-y-3">
+                          {tier.features.map((feature, featureIndex) => (
+                            <li key={featureIndex} className="flex items-center gap-2 sm:gap-3">
+                              <img
+                                src={
+                                  tier.isPopular
+                                    ? '/images/img_record_black_900_01.svg'
+                                    : '/images/img_record.svg'
+                                }
+                                alt="feature"
+                                width={20}
+                                height={20}
+                                className="flex-shrink-0"
+                              />
+                              <span
+                                className={`text-[14px] sm:text-[16px] font-semibold leading-[17px] sm:leading-[19px] uppercase ${
+                                  tier.isPopular ? 'text-[#0c0117]' : 'text-white'
+                                }`}
+                                style={{ fontFamily: 'Raleway' }}
+                              >
+                                {feature}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
 
-                    <div className="mb-6 sm:mb-8">
-                      <ul className="space-y-2 sm:space-y-3">
-                        {tier.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-center gap-2 sm:gap-3">
-                            <img
-                              src={
-                                tier.isPopular
-                                  ? '/images/img_record_black_900_01.svg'
-                                  : '/images/img_record.svg'
-                              }
-                              alt="feature"
-                              width={20}
-                              height={20}
-                              className="flex-shrink-0"
-                            />
-                            <span
-                              className={`text-[14px] sm:text-[16px] font-semibold leading-[17px] sm:leading-[19px] uppercase ${
-                                tier.isPopular ? 'text-[#0c0117]' : 'text-white'
-                              }`}
-                              style={{ fontFamily: 'Raleway' }}
-                            >
-                              {feature}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <Button
-                      text={tier.buttonText}
-                      text_font_size="text-base"
-                      text_font_family="Manrope"
-                      text_font_weight="font-semibold"
-                      text_line_height="leading-xl"
-                      // НЕ передаємо fill_background / fill_background_color
-                      border_border_radius="rounded-[52px]"
-                      padding="t=16px,r=63px,b=16px,l=63px"
-                      className={`w-[287px] h-[57px] rounded-[52px] font-semibold text-[16px] uppercase flex items-center justify-center
+                    {/* 🔹 ЗМІНИ: закріпили кнопку так, щоб вона була на одному рівні по низу */}
+                    <div className="pt-[26px] sm:pt-[32px] mt-auto flex justify-center">
+                      <Button
+                        text={tier.buttonText}
+                        text_font_size="text-base"
+                        text_font_family="Manrope"
+                        text_font_weight="font-semibold"
+                        text_line_height="leading-xl"
+                        border_border_radius="rounded-[52px]"
+                        padding="t=16px,r=63px,b=16px,l=63px"
+                        className={`w-[287px] h-[57px] rounded-[52px] font-semibold text-[16px] uppercase flex items-center justify-center
     ${tier.buttonStyle === 'white' ? '!bg-white !text-[#0c0117]' : '!bg-[#0c0117] !text-white'}`}
-                      style={{
-                        background: tier.buttonStyle === 'white' ? '#ffffff' : '#0c0117',
-                        color: tier.buttonStyle === 'white' ? '#0c0117' : '#ffffff',
-                        backgroundImage: 'none', // знімає градієнт
-                      }}
-                      onClick={() => handlePurchaseClick(tier.id)}
-                    />
-
-                    {/* <Button
-                      text={tier.buttonText}
-                      text_font_size="text-base"
-                      text_font_family="Manrope"
-                      text_font_weight="font-semibold"
-                      text_line_height="leading-xl"
-                      // Видаляємо fill_background_color / gradient: оформляємо через класи
-                      border_border_radius="rounded-[52px]"
-                      padding="t=16px,r=63px,b=16px,l=63px"
-                      className={`w-[287px] h-[57px] rounded-[52px] flex items-center justify-center font-semibold text-[16px] ${
-                        tier.buttonStyle === 'white'
-                          ? 'bg-white text-[#0c0117]'
-                          : 'bg-[#0c0117] text-white'
-                      }`}
-                      onClick={() => handlePurchaseClick(tier.id)}
-                    /> */}
-
-                    {/* <Button
-                      text={tier.buttonText}
-                      text_font_size="text-base"
-                      text_font_family="Manrope"
-                      text_font_weight="font-semibold"
-                      text_line_height="leading-xl"
-                      text_color={tier.buttonStyle === 'white' ? 'text-[#0c0117]' : 'text-white'}
-                      border_border_radius="rounded-[52px]"
-                      padding="t=16px,r=63px,b=16px,l=63px"
-                      className={`w-[287px] h-[57px] ${
-                        tier.buttonStyle === 'white'
-                          ? 'bg-white text-[#0c0117]'
-                          : 'bg-[#0c0117] text-white'
-                      }`}
-                      onClick={() => handlePurchaseClick(tier.id)}
-                    /> */}
-                    {/* <Button
-                      text={tier.buttonText}
-                      text_font_size="text-base"
-                      text_font_family="Manrope"
-                      text_font_weight="font-semibold"
-                      text_line_height="leading-xl"
-                      text_color={tier.buttonStyle === 'white' ? 'text-[#0c0117]' : 'text-white'}
-                      border_border_radius="rounded-[52px]"
-                      padding="t=16px,r=63px,b=16px,l=63px"
-                      className={`w-[287px] h-[57px] ${
-                        tier.buttonStyle === 'white'
-                          ? 'bg-white text-[#0c0117]'
-                          : 'bg-[#0c0117] text-white'
-                      }`}
-                      onClick={() => handlePurchaseClick(tier.id)}
-                    /> */}
-
-                    {/* <Button
-                      text={tier.buttonText}
-                      text_font_size="text-base"
-                      text_font_family="Manrope"
-                      text_font_weight="font-semibold"
-                      text_line_height="leading-xl"
-                      text_color={tier.buttonStyle === 'white' ? 'text-[#0c0117]' : 'text-white'}
-                      fill_background_color={tier.buttonStyle === 'white' ? '#ffffff' : '#0c0117'}
-                      border_border_radius="rounded-[28px]"
-                      padding="t=16px,r=34px,b=16px,l=34px"
-                      layout_width="w-full"
-                      onClick={() => handlePurchaseClick(tier.id)}
-                    /> */}
+                        style={{
+                          background: tier.buttonStyle === 'white' ? '#ffffff' : '#0c0117',
+                          color: tier.buttonStyle === 'white' ? '#0c0117' : '#ffffff',
+                          backgroundImage: 'none', // знімає градієнт
+                        }}
+                        onClick={() => handlePurchaseClick(tier.id)}
+                      />
+                    </div>
                   </div>
                 </div>
               ))}

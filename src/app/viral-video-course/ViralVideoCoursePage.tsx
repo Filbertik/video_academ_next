@@ -510,17 +510,21 @@ export default function ViralVideoCoursePage() {
           </div>
 
           {/* 🔹 Нижня пульсуюча смуга */}
-          <div className="absolute bottom-0 left-0 right-0 overflow-hidden z-[5] pointer-events-none">
+
+          {/* 🔹 Нижня пульсуюча смуга */}
+          <div className="absolute inset-0 overflow-hidden z-[5] pointer-events-none">
             <div
               className="absolute bg-gradient-to-r from-[#5adafc] via-[#df93ff] to-[#e56f8c] animate-pulse flex items-center justify-center"
               style={{
                 width: '1547px',
                 height: '97px',
-                filter: 'blur(6.73px)',
+                filter: 'blur(1.73px)',
                 transform: 'rotate(-36deg)',
                 transformOrigin: 'center',
-                bottom: '-10px', // 🔹 тепер смуга всередині секції
-                right: '-180px', // 🔹 трохи виступає вліво, але не виходить за межі
+                left: '50%',
+                bottom: '-160px', // зміщуємо вниз у межах секції
+                translate: '-40%', // центрування по горизонталі
+                background: 'linear-gradient(121deg, #5bdbfd 0%, #7375ff 98%, #df93ff 100%)',
               }}
             >
               <div className="flex items-center gap-8 whitespace-nowrap px-8">

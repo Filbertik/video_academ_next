@@ -208,10 +208,15 @@ export default function ViralVideoCoursePage() {
                       tier.isPopular
                         ? 'bg-white'
                         : tier.isExpert
-                          ? 'bg-[linear-gradient(121deg,_#5bdbfd_0%,_#7375ff_40.3%,_#df93ff_79.87%,_#e56f8c_100%)]' // 🔹 ЗМІНА: точний градієнт як у ТЗ
+                          ? 'bg-[linear-gradient(121deg,_#5bdbfd_0%,_#7375ff_60.3%,_#df93ff_99.87%,_#e56f8c_100%)]' // 🔹 ЗМІНА: точний градієнт як у ТЗ
                           : 'bg-[#0c0117]'
                     }`}
                   style={{ minHeight: '465px' }}
+                  // style={{
+                  //   width: '360px', // 🔹 ЗМІНА
+                  //   height: '466px', // 🔹 ЗМІНА
+                  //   borderRadius: '28px', // 🔹 ЗМІНА
+                  // }}
                 >
                   {tier.isPopular && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">

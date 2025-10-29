@@ -187,6 +187,20 @@ export default function ViralVideoCoursePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-[20px] items-stretch">
               {pricingTiers.map((tier, index) => (
                 // 🔹 ЗМІНИ: використано flex layout із minHeight, щоб уникнути "вилазіння" кнопки
+                // <div
+                //   key={tier.id}
+                //   className={`relative flex flex-col justify-between rounded-[28px] shadow-[4px_6px_10px_#a75df333]
+                //     ${
+                //       tier.isPopular
+                //         ? 'bg-white'
+                //         : tier.isExpert
+                //           ? 'bg-gradient-to-r from-[#5adafc] via-[#df93ff] to-[#e56f8c]'
+                //           : 'bg-[#0c0117]'
+                //     }`}
+                //   style={{ minHeight: '465px' }}
+                // >
+
+                // 🔹 ЗМІНА: оновлено градієнт для третьої картки (isExpert)
                 <div
                   key={tier.id}
                   className={`relative flex flex-col justify-between rounded-[28px] shadow-[4px_6px_10px_#a75df333] 
@@ -194,7 +208,7 @@ export default function ViralVideoCoursePage() {
                       tier.isPopular
                         ? 'bg-white'
                         : tier.isExpert
-                          ? 'bg-gradient-to-r from-[#5adafc] via-[#df93ff] to-[#e56f8c]'
+                          ? 'bg-[linear-gradient(121deg,_#5bdbfd_0%,_#7375ff_40.3%,_#df93ff_79.87%,_#e56f8c_100%)]' // 🔹 ЗМІНА: точний градієнт як у ТЗ
                           : 'bg-[#0c0117]'
                     }`}
                   style={{ minHeight: '465px' }}

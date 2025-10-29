@@ -353,10 +353,27 @@ export default function ViralVideoCoursePage() {
         </section>
 
         {/* Нижній CTA блок */}
-        <section className="w-full mt-[120px] md:mt-[160px] lg:mt-[200px] relative">
+        {/* <section className="w-full mt-[120px] md:mt-[160px] lg:mt-[200px] relative"> */}
+        <section
+          // 🔹 ЗМІНА: стилі правильно через React.CSSProperties
+          className="w-full relative mt-[120px] md:mt-[160px] lg:mt-[200px] mb-[59px]" // нижній відступ
+          style={{
+            maxWidth: '1280px', // 🔹 camelCase + рядок із px
+            height: '488px', // 🔹 camelCase + рядок із px
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
           <div className="absolute inset-0">
             <div className="absolute right-0 top-0 w-[48%] h-full bg-gradient-to-r from-[#5adafc] via-[#df93ff] to-[#e56f8c]" />
-            <div className="absolute left-0 top-[117px] w-[32%] h-[488px]">
+            {/* <div className="absolute left-0 top-[117px] w-[32%] h-[488px]">            */}
+            <div
+              className="absolute left-0 bottom-0"
+              // style={{
+              //   width: '513px',
+              //   height: '799px',
+              // }}
+            >
               <img
                 src="/images/img_unsplash_a64viljbv9q.png"
                 alt="Content creator"

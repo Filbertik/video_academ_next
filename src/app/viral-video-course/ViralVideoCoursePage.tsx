@@ -455,7 +455,71 @@ export default function ViralVideoCoursePage() {
           />
 
           {/* 🔹 Контент поверх підложки */}
+
+          {/* 🔹 Контент поверх підложки */}
           <div className="relative z-10 flex items-center justify-center min-h-[488px] px-4 sm:px-6 lg:px-8">
+            <div
+              className="
+      w-[281px] h-[251px]
+      sm:w-[400px] sm:h-auto
+      lg:w-[534px] lg:h-[362px]
+      text-center
+      py-12 sm:py-16 lg:py-20
+      flex flex-col justify-center mx-auto
+    "
+            >
+              <div className="mb-8 sm:mb-10 lg:mb-[42px]">
+                <h2
+                  className="text-[24px] sm:text-[30px] md:text-[36px] font-bold leading-[28px] sm:leading-[36px] md:leading-[42px] text-center text-white uppercase mb-4 sm:mb-5 lg:mb-[18px]"
+                  style={{ fontFamily: 'Raleway' }}
+                >
+                  <span>Дізнайся як створити контент, який </span>
+                  <span
+                    style={{
+                      background: 'linear-gradient(84deg, #5adafc 0%, #df93ff 50%, #e56f8c 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                  >
+                    підкорює аудиторію
+                  </span>
+                </h2>
+
+                <p
+                  className="text-[18px] sm:text-[20px] md:text-[24px] font-medium leading-[22px] sm:leading-[24px] md:leading-[28px] text-center text-white"
+                  style={{ fontFamily: 'Raleway' }}
+                >
+                  Матеріали, які мають змогу охопити тисячі людей
+                </p>
+              </div>
+
+              <div className="relative mx-auto">
+                <Button
+                  text="Придбати зі знижкою"
+                  text_font_size="text-[18px] sm:text-[20px] md:text-[22px]"
+                  text_font_family="Raleway"
+                  text_font_weight="font-semibold"
+                  text_line_height="leading-[22px] sm:leading-[24px] md:leading-[26px]"
+                  text_color="text-white"
+                  fill_background="linear-gradient(120deg, #5adafc 0%, #df93ff 50%, #e56f8c 100%)"
+                  border_border_radius="rounded-[36px]"
+                  padding="t=20px,r=90px,b=20px,l=34px"
+                  effect_box_shadow="7px 11px 18px #a75df333"
+                  layout_gap="34px"
+                  onClick={handleDiscountPurchase}
+                  className="shadow-[7px_11px_18px_#a75df333]"
+                />
+                {discountPercentage && (
+                  <div className="absolute -top-2 -right-2 bg-[#ff4a76] text-white text-sm font-bold px-3 py-1 rounded-full">
+                    {discountPercentage}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* <div className="relative z-10 flex items-center justify-center min-h-[488px] px-4 sm:px-6 lg:px-8">/
             <div className="w-full max-w-[600px] text-center py-12 sm:py-16 lg:py-20">
               <div className="mb-8 sm:mb-10 lg:mb-[42px]">
                 <h2
@@ -507,7 +571,7 @@ export default function ViralVideoCoursePage() {
                 )}
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* 🔹 Нижня пульсуюча смуга */}
 

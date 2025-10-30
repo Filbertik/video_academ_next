@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import Header from '@/components/common/Header';
 import Button from '@/components/ui/Button';
+import ContactModal from '@/app/contact-modal/ContactModal';
 
 interface PricingTier {
   id: string;
@@ -21,6 +22,7 @@ export default function ViralVideoCoursePage() {
   useEffect(() => {
     setDiscountPercentage('-50%');
   }, []);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false); // Рядок ~22
 
   const pricingTiers: PricingTier[] = [
     {
@@ -59,16 +61,46 @@ export default function ViralVideoCoursePage() {
     },
   ];
 
+  // const handlePurchaseClick = (tierId: string) => {
+  //   console.log('Purchase clicked:', tierId);
+  // };
+
+  // const handleDiscountPurchase = () => {
+  //   console.log('Discount purchase clicked');
+  // };
+  // ✅ відкриває модалку
   const handlePurchaseClick = (tierId: string) => {
     console.log('Purchase clicked:', tierId);
+    setIsModalOpen(true);
   };
 
+  // ✅ відкриває модалку
   const handleDiscountPurchase = () => {
     console.log('Discount purchase clicked');
+    setIsModalOpen(true);
+  };
+
+  // ✅ закриває модалку (передається у ContactModal)
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
     <div className="min-h-screen bg-[#0b0117] relative overflow-hidden">
+      {/* ✅ Рендеримо модалку поверх сторінки */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/70 backdrop-blur-sm">
+          <div className="relative w-full max-w-[600px]">
+            <button
+              onClick={handleCloseModal}
+              className="absolute top-2 right-2 text-white text-2xl font-bold z-50"
+            >
+              ×
+            </button>
+            <ContactModal />
+          </div>
+        </div>
+      )}
       {/* Фонова декоративна пляма */}
       {/* <div className="absolute inset-0">
         <div className="absolute top-[889px] right-[22px] w-[30%] h-[346px] bg-[#a75df3] rounded-[184px] shadow-[0px_4px_577px_#888888ff]" />
@@ -326,9 +358,11 @@ export default function ViralVideoCoursePage() {
                     </div>
 
                     {/* 🔹 ЗМІНИ: закріпили кнопку так, щоб вона була на одному рівні по низу */}
+                    {/* ✅ Кнопка відкриває модалку */}
                     <div className="pt-[26px] sm:pt-[32px] mt-auto flex justify-center">
                       <Button
                         text={tier.buttonText}
+                        onClick={() => handlePurchaseClick(tier.id)}
                         text_font_size="text-base"
                         text_font_family="Manrope"
                         text_font_weight="font-semibold"
@@ -342,7 +376,7 @@ export default function ViralVideoCoursePage() {
                           color: tier.buttonStyle === 'white' ? '#0c0117' : '#ffffff',
                           backgroundImage: 'none', // знімає градієнт
                         }}
-                        onClick={() => handlePurchaseClick(tier.id)}
+                        // onClick={() => handlePurchaseClick(tier.id)}
                       />
                     </div>
                   </div>
@@ -381,7 +415,7 @@ export default function ViralVideoCoursePage() {
               }}
             />
           </div>
-          {/* 🔹 Підложка (розмита еліптична форма) */}
+          {/* 🔹 Підложка (розмита еліптична форма з svg) */}
           {/* <div className="absolute inset-0 flex justify-center items-center z-0">
             <svg
               width="1280"

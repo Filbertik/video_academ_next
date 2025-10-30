@@ -495,97 +495,55 @@ export default function ViralVideoCoursePage() {
               </div>
 
               {/* 🔹 Кнопка зі знижкою */}
+              {/* 🔹 Кнопка зі знижкою */}
               <div className="relative mx-auto flex justify-center">
-                <div
-                  className="relative"
-                  style={{
-                    width: '268px',
-                    height: '68px',
-                  }}
-                >
-                  {/* ✅ Десктопна версія */}
-                  <div
-                    className="hidden md:block"
-                    style={{
-                      width: '534px',
-                      height: '74px',
-                    }}
-                  >
-                    <Button
-                      text="Придбати зі знижкою"
-                      text_font_size="text-[18px] sm:text-[20px] md:text-[22px]"
-                      text_font_family="Raleway"
-                      text_font_weight="font-semibold"
-                      text_line_height="leading-[22px] sm:leading-[24px] md:leading-[26px]"
-                      text_color="text-white"
-                      fill_background="linear-gradient(120deg, #5adafc 0%, #df93ff 50%, #e56f8c 100%)"
-                      border_border_radius="rounded-[36px]"
-                      padding="t=20px,r=90px,b=20px,l=34px"
-                      effect_box_shadow="7px 11px 18px #a75df333"
-                      layout_gap="34px"
-                      onClick={handleDiscountPurchase}
-                      className="shadow-[7px_11px_18px_#a75df333] w-full h-full"
-                    />
+                <div className="relative w-[268px] h-[68px] md:w-[534px] md:h-[74px]">
+                  {/* ✅ Кнопка */}
+                  <Button
+                    text="Придбати зі знижкою"
+                    text_font_size="text-[16px] sm:text-[18px] md:text-[22px]"
+                    text_font_family="Raleway"
+                    text_font_weight="font-semibold"
+                    text_line_height="leading-[22px] sm:leading-[24px] md:leading-[26px]"
+                    text_color="text-white"
+                    fill_background="linear-gradient(120deg, #5adafc 0%, #7375ff 40.3%, #df93ff 79.87%, #e56f8c 100%)"
+                    border_border_radius="rounded-[36px]"
+                    padding="t=18px,r=60px,b=18px,l=26px"
+                    effect_box_shadow="7px 11px 18px #a75df333"
+                    layout_gap="26px"
+                    onClick={handleDiscountPurchase}
+                    className="shadow-[7px_11px_18px_#a75df333] w-full h-full"
+                  />
 
-                    {/* 🔹 Кружечок -50% */}
-                    {discountPercentage && (
-                      <div
-                        className="absolute flex items-center justify-center text-white font-bold rounded-full bg-[#ff4a76]"
-                        style={{
-                          width: '64px',
-                          height: '64px',
-                          top: '50%',
-                          right: '-32px',
-                          transform: 'translateY(-50%)',
-                          fontSize: '18px',
-                        }}
-                      >
-                        {discountPercentage}
-                      </div>
-                    )}
-                  </div>
+                  {/* 🔹 Кружечок зі знижкою */}
+                  {discountPercentage && (
+                    <div
+                      className="absolute flex items-center justify-center text-white font-bold rounded-full bg-[#ff4a77]"
+                      style={{
+                        width: '63px',
+                        height: '68px',
+                        top: '50%',
+                        right: '-2px',
+                        transform: 'translateY(-50%)',
+                        fontSize: '16px',
+                        boxShadow: '0 0 10px rgba(90, 140, 255, 0.5)',
+                      }}
+                    >
+                      {discountPercentage}
+                    </div>
+                  )}
 
-                  {/* ✅ Мобільна версія */}
-                  <div
-                    className="block md:hidden"
-                    style={{
-                      width: '268px',
-                      height: '68px',
-                    }}
-                  >
-                    <Button
-                      text="Придбати зі знижкою"
-                      text_font_size="text-[16px] sm:text-[18px]"
-                      text_font_family="Raleway"
-                      text_font_weight="font-semibold"
-                      text_line_height="leading-[22px]"
-                      text_color="text-white"
-                      fill_background="linear-gradient(120deg, #5adafc 0%, #df93ff 50%, #e56f8c 100%)"
-                      border_border_radius="rounded-[36px]"
-                      padding="t=18px,r=60px,b=18px,l=26px"
-                      effect_box_shadow="5px 8px 14px #a75df333"
-                      layout_gap="26px"
-                      onClick={handleDiscountPurchase}
-                      className="shadow-[5px_8px_14px_#a75df333] w-full h-full"
-                    />
-
-                    {/* 🔹 Кружечок -50% для мобілки */}
-                    {discountPercentage && (
-                      <div
-                        className="absolute flex items-center justify-center text-white font-bold rounded-full bg-[#ff4a76]"
-                        style={{
-                          width: '54px',
-                          height: '54px',
-                          top: '50%',
-                          right: '-27px',
-                          transform: 'translateY(-50%)',
-                          fontSize: '16px',
-                        }}
-                      >
-                        {discountPercentage}
-                      </div>
-                    )}
-                  </div>
+                  {/* 🔹 Десктопна адаптація (збільшені розміри) */}
+                  <style jsx>{`
+                    @media (min-width: 768px) {
+                      div.relative > div.absolute {
+                        width: 74px !important;
+                        height: 74px !important;
+                        right: -1px !important;
+                        font-size: 18px !important;
+                      }
+                    }
+                  `}</style>
                 </div>
               </div>
 

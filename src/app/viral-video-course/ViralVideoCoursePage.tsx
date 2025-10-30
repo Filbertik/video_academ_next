@@ -532,19 +532,19 @@ export default function ViralVideoCoursePage() {
                   className="text-[28px] sm:text-[32px] md:text-[34px] font-bold leading-[38px] text-white uppercase"
                   style={{ fontFamily: 'Sansation' }}
                 >
-                  Секреты вирусных видео
+                  Секрети вірусних відео
                 </span>
                 <span
                   className="text-[28px] sm:text-[32px] md:text-[34px] font-bold leading-[39px] text-white uppercase"
                   style={{ fontFamily: 'Sansation' }}
                 >
-                  Секрети вірусних відео
+                  Секреты вирусных видео
                 </span>
                 <span
                   className="text-[28px] sm:text-[32px] md:text-[34px] font-bold leading-[38px] text-white uppercase"
                   style={{ fontFamily: 'Sansation' }}
                 >
-                  Секреты вирусных видео
+                  Секрети вірусних відео
                 </span>
               </div>
             </div>

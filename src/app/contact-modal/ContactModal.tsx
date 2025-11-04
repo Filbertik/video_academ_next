@@ -1,8 +1,8 @@
 'use client';
 import { useState } from 'react';
- import Header from'@/components/common/Header';
- import EditText from'@/components/ui/EditText';
- import Button from'@/components/ui/Button';
+import Header from '@/components/common/Header';
+import EditText from '@/components/ui/EditText';
+import Button from '@/components/ui/Button';
 
 interface FormData {
   name: string;
@@ -20,74 +20,103 @@ export default function ContactModal() {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     telegram: '',
-    email: ''
-  })
-  
-  const [errors, setErrors] = useState<FormErrors>({})
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(true)
+    email: '',
+  });
+
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(true);
 
   const validateForm = (): boolean => {
-    const newErrors: FormErrors = {}
-    
+    const newErrors: FormErrors = {};
+
     if (!formData.name.trim()) {
-      newErrors.name = "Ім'я є обов'язковим"
+      newErrors.name = "Ім'я є обов'язковим";
     }
-    
+
     if (!formData.email.trim()) {
-      newErrors.email = 'Email є обов\'язковим'
+      newErrors.email = "Email є обов'язковим";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Введіть коректний email'
+      newErrors.email = 'Введіть коректний email';
     }
-    
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
 
-  const handleInputChange = (field: keyof FormData) => (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: event.target.value
-    }))
-    
-    // Clear error when user starts typing
-    if (errors[field]) {
-      setErrors(prev => ({
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleInputChange =
+    (field: keyof FormData) => (event: React.ChangeEvent<HTMLInputElement>) => {
+      setFormData((prev) => ({
         ...prev,
-        [field]: undefined
-      }))
-    }
-  }
+        [field]: event.target.value,
+      }));
 
+      // Clear error when user starts typing
+      if (errors[field]) {
+        setErrors((prev) => ({
+          ...prev,
+          [field]: undefined,
+        }));
+      }
+    };
   const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault()
-    
-    if (!validateForm()) {
-      return
-    }
-    
-    setIsSubmitting(true)
-    
+    event.preventDefault();
+
+    if (!validateForm()) return;
+
+    setIsSubmitting(true);
+
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      // Reset form and close modal on success
-      setFormData({ name: '', telegram: '', email: '' })
-      setIsModalOpen(false)
-      
-    } catch (error) {
-      console.error('Form submission error:', error)
+      const res = await fetch('/api/sendMessage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        // Успіх: очищаємо форму і показуємо повідомлення
+        setFormData({ name: '', telegram: '', email: '' });
+        setIsModalOpen(false);
+      } else {
+        alert('❌ Не вдалося відправити повідомлення. Спробуйте ще раз.');
+      }
+    } catch (err) {
+      console.error('Помилка при відправленні:', err);
+      alert('❌ Сталася помилка під час надсилання форми.');
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
+
+  // const handleSubmit = async (event: React.FormEvent) => {
+  //   event.preventDefault()
+
+  //   if (!validateForm()) {
+  //     return
+  //   }
+
+  //   setIsSubmitting(true)
+
+  //   try {
+  //     // Simulate API call
+  //     await new Promise(resolve => setTimeout(resolve, 1000))
+
+  //     // Reset form and close modal on success
+  //     setFormData({ name: '', telegram: '', email: '' })
+  //     setIsModalOpen(false)
+
+  //   } catch (error) {
+  //     console.error('Form submission error:', error)
+  //   } finally {
+  //     setIsSubmitting(false)
+  //   }
+  // }
 
   const handleCloseModal = () => {
-    setIsModalOpen(false)
-  }
+    setIsModalOpen(false);
+  };
 
   if (!isModalOpen) {
     return (
@@ -98,30 +127,23 @@ export default function ContactModal() {
             <h1 className="text-2xl md:text-3xl font-bold text-white mb-4">
               Дякуємо за ваш запит!
             </h1>
-            <p className="text-gray-300 mb-6">
-              Ми зв'яжемося з вами найближчим часом.
-            </p>
-            <Button
-              text="Повернутися"
-              onClick={() => setIsModalOpen(true)}
-              variant="gradient"
-            />
+            <p className="text-gray-300 mb-6">Ми зв'яжемося з вами найближчим часом.</p>
+            <Button text="Повернутися" onClick={() => setIsModalOpen(true)} variant="gradient" />
           </div>
         </main>
       </div>
-    )
+    );
   }
 
   return (
     <div className="w-full min-h-screen bg-[#0c0117] flex flex-col">
       <Header />
-      
+
       <main className="flex-1 flex items-center justify-center p-4 mt-[39px] md:mt-[59px] lg:mt-[78px]">
         <div className="w-full max-w-[1000px] mx-auto flex flex-col lg:flex-row items-center justify-center gap-[30px] md:gap-[45px] lg:gap-[60px]">
-          
           {/* Contact Form Modal */}
           <div className="relative w-full max-w-[400px] lg:max-w-[350px] xl:max-w-[400px]">
-            <div 
+            <div
               className="bg-[#0c0117] rounded-[28px] p-[14px] md:p-[21px] lg:p-[28px] relative"
               style={{ boxShadow: '4px 6px 10px #a75df333' }}
             >
@@ -141,7 +163,10 @@ export default function ContactModal() {
               </button>
 
               <div className="pt-[17px] md:pt-[26px] lg:pt-[34px] pb-[22px] md:pb-[33px] lg:pb-[44px] px-[10px] md:px-[15px] lg:px-[20px]">
-                <form onSubmit={handleSubmit} className="flex flex-col gap-[17px] md:gap-[26px] lg:gap-[34px]">
+                <form
+                  onSubmit={handleSubmit}
+                  className="flex flex-col gap-[17px] md:gap-[26px] lg:gap-[34px]"
+                >
                   {/* Form Title */}
                   <h1 className="text-[18px] md:text-[21px] lg:text-[24px] font-bold leading-[22px] md:leading-[25px] lg:leading-[29px] text-center uppercase text-white font-raleway">
                     Укажіть свої дані
@@ -213,7 +238,7 @@ export default function ContactModal() {
                     {/* Submit Button */}
                     <Button
                       type="submit"
-                      text={isSubmitting ? "Відправляємо..." : "Відправити"}
+                      text={isSubmitting ? 'Відправляємо...' : 'Відправити'}
                       disabled={isSubmitting}
                       text_font_size="text-sm"
                       text_font_family="Raleway"
@@ -228,7 +253,8 @@ export default function ContactModal() {
                       layout_width="flex-1"
                       className="border-2 border-transparent bg-white text-[#0c0117] hover:bg-gray-50 transition-colors duration-200"
                       style={{
-                        borderImage: 'linear-gradient(84deg, #5adafc 0%, #df93ff 50%, #e56f8c 100%) 1'
+                        borderImage:
+                          'linear-gradient(84deg, #5adafc 0%, #df93ff 50%, #e56f8c 100%) 1',
                       }}
                     />
                   </div>
@@ -238,15 +264,15 @@ export default function ContactModal() {
           </div>
 
           {/* Decorative Purple Circle */}
-          <div 
+          <div
             className="hidden lg:block w-[184px] md:w-[276px] lg:w-[368px] h-[173px] md:h-[260px] lg:h-[346px] bg-[#a75df3] rounded-full"
-            style={{ 
+            style={{
               boxShadow: '0px 4px 577px #888888ff',
-              borderRadius: '184px'
+              borderRadius: '184px',
             }}
           />
         </div>
       </main>
     </div>
-  )
+  );
 }

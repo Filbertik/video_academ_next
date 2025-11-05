@@ -143,9 +143,20 @@ export default function ContactModal() {
         <div className="w-full max-w-[1000px] mx-auto flex flex-col lg:flex-row items-center justify-center gap-[30px] md:gap-[45px] lg:gap-[60px]">
           {/* Contact Form Modal */}
           <div className="relative w-full max-w-[400px] lg:max-w-[350px] xl:max-w-[400px]">
-            <div
+            {/* <div
               className="bg-[#0c0117] rounded-[28px] p-[14px] md:p-[21px] lg:p-[28px] relative"
               style={{ boxShadow: '4px 6px 10px #a75df333' }}
+            > */}
+            <div
+              className="relative flex flex-col items-center justify-center"
+              style={{
+                borderRadius: '28px',
+                width: '410px',
+                height: '491px',
+                boxShadow: 'inset 4px 6px 10px 4px rgba(167, 93, 243, 0.2)',
+                background: '#0c0117',
+                padding: '28px',
+              }}
             >
               {/* Close Button */}
               <button
@@ -264,13 +275,13 @@ export default function ContactModal() {
           </div>
 
           {/* Decorative Purple Circle */}
-          <div
+          {/* <div
             className="hidden lg:block w-[184px] md:w-[276px] lg:w-[368px] h-[173px] md:h-[260px] lg:h-[346px] bg-[#a75df3] rounded-full"
             style={{
               boxShadow: '0px 4px 577px #888888ff',
               borderRadius: '184px',
             }}
-          />
+          /> */}
         </div>
       </main>
     </div>

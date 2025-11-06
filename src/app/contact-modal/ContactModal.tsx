@@ -28,7 +28,7 @@ export default function ContactModal() {
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // Закриття по Esc
+  // --- Закриття по ESC ---
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setIsModalOpen(false);
@@ -84,12 +84,13 @@ export default function ContactModal() {
 
   const handleCloseModal = () => setIsModalOpen(false);
 
+  // Якщо модалка закрита — не показуємо нічого
   if (!isModalOpen) return null;
 
   return (
     <div
       className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black/50"
-      onClick={handleCloseModal} // бекдроп
+      onClick={handleCloseModal} // ← бекдроп
     >
       {/* Header */}
       <div className="fixed top-0 left-0 w-full z-50 pointer-events-auto">
@@ -98,7 +99,7 @@ export default function ContactModal() {
 
       <main
         className="relative z-50 flex flex-col items-center justify-center p-4 mt-[100px] md:mt-[120px] lg:mt-[140px]"
-        onClick={(e) => e.stopPropagation()} // щоб клік усередині не закривав
+        onClick={(e) => e.stopPropagation()} // ← щоб клік усередині не закривав
       >
         {/* === ФОРМА === */}
         {!isSubmitted && (
@@ -174,7 +175,7 @@ export default function ContactModal() {
               padding: '28px',
             }}
           >
-            {/* ✅ Хрестик */}
+            {/* Хрестик */}
             <button
               onClick={handleCloseModal}
               className="absolute top-[14px] right-[14px] w-[32px] h-[32px] flex items-center justify-center text-white hover:text-gray-300 transition-colors duration-200"
@@ -183,11 +184,11 @@ export default function ContactModal() {
               <img src="/images/img_material_symbol.svg" alt="close" width={32} height={32} />
             </button>
 
-            {/* ✅ Твій текст */}
+            {/* Текст — ПОВЕРНЕНИЙ */}
             <h1 className="text-2xl md:text-3xl font-bold mb-4">Дякуємо за ваш запит!</h1>
             <p className="text-gray-300 mb-6">Ми зв'яжемося з вами найближчим часом.</p>
 
-            {/* ✅ Кнопка закриття */}
+            {/* Кнопка закриття */}
             <Button text="Повернутися" onClick={handleCloseModal} variant="gradient" />
           </div>
         )}

@@ -136,8 +136,13 @@ export default function ContactModal() {
   }
 
   return (
-    <div className="w-full min-h-screen bg-[#0c0117] flex flex-col">
-      <Header />
+    // <div className="w-full min-h-screen bg-[#0c0117] flex flex-col">
+    <div className="relative w-full min-h-screen bg-[#0c0117] flex flex-col items-center justify-center">
+      {/* Абсолютно позиційований хедер поверх усієї сторінки */}
+      {/* <Header /> */}
+      <div className="absolute top-0 left-0 w-full z-20">
+        <Header />
+      </div>
       {/* <Header className="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8 mt-[20px] md:mt-[30px] lg:mt-[40px]" /> */}
       {/* <Header className="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8 mt-[20px] md:mt-[30px] lg:mt-[40px]" /> */}
 

@@ -137,16 +137,22 @@ export default function ContactModal() {
 
   return (
     // <div className="w-full min-h-screen bg-[#0c0117] flex flex-col">
+    // <div className="relative w-full min-h-screen bg-[#0c0117] flex flex-col items-center justify-center">
+    // Абсолютно позиційований хедер поверх усієї сторінки
     <div className="relative w-full min-h-screen bg-[#0c0117] flex flex-col items-center justify-center">
-      {/* Абсолютно позиційований хедер поверх усієї сторінки */}
+      {/* Позиціонуємо хедер відносно viewport, щоб він був по центру як на основній сторінці */}
       {/* <Header /> */}
-      <div className="absolute top-0 left-0 w-full z-20">
+      <div className="fixed top-0 left-0 w-full z-50 pointer-events-auto">
         <Header />
       </div>
+      {/* <div className="absolute top-0 left-0 w-full z-20">
+        <Header />
+      </div> */}
       {/* <Header className="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8 mt-[20px] md:mt-[30px] lg:mt-[40px]" /> */}
       {/* <Header className="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8 mt-[20px] md:mt-[30px] lg:mt-[40px]" /> */}
 
-      <main className="flex-1 flex items-center justify-center p-4 mt-[39px] md:mt-[59px] lg:mt-[78px]">
+      {/* <main className="flex-1 flex items-center justify-center p-4 mt-[39px] md:mt-[59px] lg:mt-[78px]"> */}
+      <main className="flex-1 flex items-center justify-center p-4 mt-[100px] md:mt-[120px] lg:mt-[140px]">
         <div className="w-full max-w-[1000px] mx-auto flex flex-col lg:flex-row items-center justify-center gap-[30px] md:gap-[45px] lg:gap-[60px]">
           {/* Contact Form Modal */}
           <div className="relative w-full max-w-[400px] lg:max-w-[350px] xl:max-w-[400px]">

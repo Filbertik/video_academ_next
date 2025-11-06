@@ -27,17 +27,8 @@ export default function ContactModal() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setIsModalOpen(false);
-      }
-    };
-    window.addEventListener('keydown', handleEsc);
-    return () => window.removeEventListener('keydown', handleEsc);
-  }, []);
 
-  // --- Закриття по ESC ---
+  // Закриття по Esc
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setIsModalOpen(false);
@@ -93,39 +84,7 @@ export default function ContactModal() {
 
   const handleCloseModal = () => setIsModalOpen(false);
 
-  // if (!isModalOpen) return null;
-  if (!isModalOpen) {
-    return (
-      <div
-        className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black/50"
-        onClick={() => setIsModalOpen(false)} // ← закриває по кліку на бекдроп
-      >
-        <div
-          className="relative w-full min-h-screen bg-[#0c0117] flex flex-col items-center justify-center"
-          onClick={(e) => e.stopPropagation()} // ← щоб клік усередині не закривав
-        >
-          {/* Хедер */}
-          <div className="fixed top-0 left-0 w-full z-50">
-            <Header />
-          </div>
-
-          <main className="flex-1 flex items-center justify-center p-4 mt-[100px] md:mt-[120px] lg:mt-[140px]">
-            <div className="text-center">
-              <h1 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Дякуємо за ваш запит!
-              </h1>
-              <p className="text-gray-300 mb-6">Ми зв'яжемося з вами найближчим часом.</p>
-              <Button
-                text="Повернутися"
-                onClick={() => setIsModalOpen(false)} // ← кнопка закриває
-                variant="gradient"
-              />
-            </div>
-          </main>
-        </div>
-      </div>
-    );
-  }
+  if (!isModalOpen) return null;
 
   return (
     <div
@@ -215,7 +174,7 @@ export default function ContactModal() {
               padding: '28px',
             }}
           >
-            {/* Хрестик */}
+            {/* ✅ Хрестик */}
             <button
               onClick={handleCloseModal}
               className="absolute top-[14px] right-[14px] w-[32px] h-[32px] flex items-center justify-center text-white hover:text-gray-300 transition-colors duration-200"
@@ -224,8 +183,11 @@ export default function ContactModal() {
               <img src="/images/img_material_symbol.svg" alt="close" width={32} height={32} />
             </button>
 
+            {/* ✅ Твій текст */}
             <h1 className="text-2xl md:text-3xl font-bold mb-4">Дякуємо за ваш запит!</h1>
             <p className="text-gray-300 mb-6">Ми зв'яжемося з вами найближчим часом.</p>
+
+            {/* ✅ Кнопка закриття */}
             <Button text="Повернутися" onClick={handleCloseModal} variant="gradient" />
           </div>
         )}

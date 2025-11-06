@@ -27,6 +27,15 @@ export default function ContactModal() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsModalOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, []);
 
   // --- Закриття по ESC ---
   useEffect(() => {
@@ -84,7 +93,39 @@ export default function ContactModal() {
 
   const handleCloseModal = () => setIsModalOpen(false);
 
-  if (!isModalOpen) return null;
+  // if (!isModalOpen) return null;
+  if (!isModalOpen) {
+    return (
+      <div
+        className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black/50"
+        onClick={() => setIsModalOpen(false)} // ← закриває по кліку на бекдроп
+      >
+        <div
+          className="relative w-full min-h-screen bg-[#0c0117] flex flex-col items-center justify-center"
+          onClick={(e) => e.stopPropagation()} // ← щоб клік усередині не закривав
+        >
+          {/* Хедер */}
+          <div className="fixed top-0 left-0 w-full z-50">
+            <Header />
+          </div>
+
+          <main className="flex-1 flex items-center justify-center p-4 mt-[100px] md:mt-[120px] lg:mt-[140px]">
+            <div className="text-center">
+              <h1 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                Дякуємо за ваш запит!
+              </h1>
+              <p className="text-gray-300 mb-6">Ми зв'яжемося з вами найближчим часом.</p>
+              <Button
+                text="Повернутися"
+                onClick={() => setIsModalOpen(false)} // ← кнопка закриває
+                variant="gradient"
+              />
+            </div>
+          </main>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div

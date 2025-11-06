@@ -19,8 +19,13 @@ const Header = ({ className = '' }: HeaderProps) => {
   ];
 
   return (
-    <header className={`w-full ${className}`}>
-      <div className="w-full max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8 mt-[20px] md:mt-[30px] lg:mt-[40px]">
+    // <header className={`w-full ${className}`}>
+    // <div className="w-full max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8 mt-[20px] md:mt-[30px] lg:mt-[40px]">
+
+    <header className="w-full bg-transparent">
+      <div
+        className={`w-full max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8 mt-[20px] md:mt-[30px] lg:mt-[40px] ${className}`}
+      >
         <div className="flex justify-between items-center w-full">
           {/* Logo */}
           <div className="flex-shrink-0 lg:mr-[159px]">

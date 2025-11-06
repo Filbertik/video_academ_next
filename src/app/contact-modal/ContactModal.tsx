@@ -137,9 +137,9 @@ export default function ContactModal() {
 
   return (
     <div className="w-full min-h-screen bg-[#0c0117] flex flex-col">
-      {/* <Header /> */}
+      <Header />
       {/* <Header className="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8 mt-[20px] md:mt-[30px] lg:mt-[40px]" /> */}
-      <Header className="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8 mt-[20px] md:mt-[30px] lg:mt-[40px]" />
+      {/* <Header className="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8 mt-[20px] md:mt-[30px] lg:mt-[40px]" /> */}
 
       <main className="flex-1 flex items-center justify-center p-4 mt-[39px] md:mt-[59px] lg:mt-[78px]">
         <div className="w-full max-w-[1000px] mx-auto flex flex-col lg:flex-row items-center justify-center gap-[30px] md:gap-[45px] lg:gap-[60px]">
